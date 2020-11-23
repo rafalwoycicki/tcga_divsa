@@ -1,0 +1,20 @@
+Package: TCGA.DIVSA
+Title: TCGA Data Import, Visualisation and Statistical Analysis
+Version: 0.0.0.0001
+Authors@R: 
+    person(given = "Rafal",
+           family = "Woycicki",
+           role = c("aut", "cre"),
+           email = "rafal.woycicki@appliedomics.com",
+           comment = c(ORCID = "0000-0001-7991-7150"))
+Description: Package imports data from TCGA-CDR spreadsheet of Supplementary Data File 1 from Liu et al. 2018 paper. It allows to phenotype data to compare around specific patients or patients with specific tumor type exhibiting one other additional feature. The phenotype, patiennts, tumor type, and additional feature can be freely selected on the basis of the spreadsheet TCGA-CDR data. The comparison involves boxplot visualisation on phenotype distributions as well as statistical comparison of medians using Wilcox non-parametric test. 
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

@@ -1,0 +1,42 @@
+---
+title: "Vignette_TCGA_DIVSA"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette_TCGA_DIVSA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(TCGA.DIVSA)
+
+```
+
+First you must access available TCGA data table.
+
+```{r data}
+system.file("extdata", "tcga_cdr.tsv", package = "TCGA.DIVSA")
+
+file <- system.file("extdata", "tcga_cdr.tsv", package = "TCGA.DIVSA")
+
+```
+
+The general command to create both the boxplot and statistical comparison is shown below:
+
+divsa(table,phenotype,cancer_type,patient,meta_lev1,meta_lev2,meta_col)
+
+The cancer_type and patient arguments are exclusive, both can not be provided at the same time.
+
+The command below will show a boxplot and print Wilcox statistical comparison test of age_at_initial_pathologic_diagnosis in patients with ACC and BRCA cancers at stages II and III of ajcc_pathologic_tumor_stage.
+
+```{r command}
+divsa(table=file,phenotype='age_at_initial_pathologic_diagnosis',cancer_type=c("ACC","BRCA"),meta_lev1="Stage II",meta_lev2="Stage III",meta_col='ajcc_pathologic_tumor_stage')
+
+```
